@@ -1,0 +1,69 @@
+## PYTHON --> SPRING
+			POST request-- http://localhost:8080/api/vehicles/entry
+			Body(JSON)-- {
+   				 	"vehicleNumber": "UP32PD1713",
+   				 	"entryGate": 3,
+    				 	"vehicleType": "PRIVATE",
+    				 	"imageName": "vehicle_1234.jpg"
+				     }
+
+############################################################################################################
+
+## GET DATA FROM DATABASE  
+				--> Vehicles inside (GET)-- http://localhost:8080/api/vehicles/inside
+
+				--> Mark Vehicle Exit (PUT)-- http://localhost:8080/api/vehicles/exit/{vehicleNumber}/{exitGate}
+				
+				--> Get All Vehicles (GET)-- http://localhost:8080/api/vehicles/all	
+				
+				--> Get All Rows for a Specific Vehicle Number(GET)-- http://localhost:8080/api/vehicles/{vehicleNumber}
+				
+				--> Get All Rows for a Specific Date(GET)-- http://localhost:8080/api/vehicles/date/{date(format- YYYY-MM-DD)}
+
+				--> Get All Rows for a Specific Vehicle Type(GET)-- http://localhost:8080/api/vehicles/type/{vehicleType(IN CAPS)}
+				
+				--> Get Vehicles from a Specific Time Period(GET) -- http://localhost:8080/api/vehicles/count/interval?startTime=2025-04-27T09:00:00&endTime=										2025-04-27T22:00:00
+						Response JSON-- {
+  								"startTime": "2025-04-27T09:00:00",
+  								"endTime": "2025-04-27T22:00:00",
+  								"count": 28
+								}
+
+				--> Get Vehicle Statistics for a Given Date(GET) -- http://localhost:8080/api/vehicles/statistics/2025-04-27
+						Response JSON-- {
+ 								 "totalEntered": 30,
+  								 "currentlyInside": 3,
+  								 "currentlyOutside": 27,
+  								 "date": "2025-04-27"
+								}
+
+#########################################################################################################################################################################
+
+## LOGIN 
+				--> POST http://localhost:8080/api/auth/login
+				    BODY (raw-JSON)- {
+    							"username": "admin",
+    							"password": "admin@123"
+						     }
+
+###############################################################################################################
+
+## BLOCKED VEHICLES 
+				--> CHECK IF A VEHICLE IS BLOCKED-- (GET) http://localhost:8080/api/blocked-vehicles/check/{vehicleNumber}
+
+				--> GET DETAILS OF A BLOCKED VEHICLE-- (GET) http://localhost:8080/api/blocked-vehicles/{vehicleNumber}
+
+				--> BLOCK A VEHICLE-- (POST) http://localhost:8080/api/blocked-vehicles/block
+						BODY (raw-JSON):
+						{
+   						 	"vehicleNumber": "UP32PD3770",
+    							"blockedBy": "Admin",
+    							"blockedReason": "Suspicious activity"
+						}
+
+				--> ALLOW A PREVIOUSLY BLOCKED VEHICLE-- (POST) http://localhost:8080/api/blocked-vehicles/allow/{vehicleNumber}
+						BODY (raw-JSON):
+						{
+   							 "allowedBy": "Guard John",
+    							 "allowedReason": "Emergency vehicle"
+						}

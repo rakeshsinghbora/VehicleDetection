@@ -1,0 +1,23 @@
+## PYTHON --> SPRING
+			POST request-- http://localhost:8080/api/vehicles/entry
+			Body(JSON)-- {
+   				 	"vehicleNumber": "UP32PD1713",
+   				 	"entryGate": 3,
+    				 	"vehicleType": "PRIVATE",
+    				 	"imageName": "vehicle_1234.jpg"
+				     }
+
+############################################################################################################
+
+## GET DATA FROM DATABASE  
+				--> Vehicles inside (GET)-- http://localhost:8080/api/vehicles/inside
+
+				--> Mark Vehicle Exit (PUT)-- http://localhost:8080/api/vehicles/exit/{vehicleNumber}/{exitGate}
+				
+				--> Get All Vehicles (GET)-- http://localhost:8080/api/vehicles/all	
+				
+				--> Get All Rows for a Specific Vehicle Number(GET)-- http://localhost:8080/api/vehicles/{vehicleNumber}
+				
+				--> Get All Rows for a Specific Date(GET)-- http://localhost:8080/api/vehicles/date/{date(format- YYYY-MM-DD)}
+
+				--> Get All Rows for a Specific Vehicle Type(GET)-- http://localhost:8080/api/vehicles/type/{vehicleType(IN CAPS)}
